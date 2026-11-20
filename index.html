@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1455ff">
+  <title>FITCONNECT — Home Workout & Virtual Trainer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/trainer.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+  <section id="authView" class="auth-shell">
+    <div class="auth-brand">
+      <div class="brand-mark"><i data-lucide="activity"></i></div>
+      <span>FIT<span>CONNECT</span></span>
+    </div>
+    <div class="auth-card">
+      <div class="auth-visual">
+        <div class="visual-chip"><i data-lucide="zap"></i> YOUR FITNESS, YOUR WAY</div>
+        <h1>Build strength.<br><em>Feel stronger.</em></h1>
+        <p>Your home. Your pace. Expert guidance whenever you need it.</p>
+        <div class="auth-visual-stats"><div><b>20+</b><small>Workout plans</small></div><div><b>1:1</b><small>Trainer support</small></div><div><b>100%</b><small>Your progress</small></div></div>
+      </div>
+      <div class="auth-form-wrap">
+        <div class="auth-tabs"><button class="auth-tab active" data-auth-tab="login">Sign in</button><button class="auth-tab" data-auth-tab="register">Create account</button></div>
+        <form id="loginForm" class="auth-form">
+          <h2>Welcome back 👋</h2><p class="muted">Sign in to continue your fitness journey.</p>
+          <label>Email address<input type="email" id="loginEmail" placeholder="you@example.com" required value="user@fitconnect.demo"></label>
+          <label>Password<div class="password-wrap"><input type="password" id="loginPassword" placeholder="Enter your password" required value="demo123"><button type="button" class="icon-btn password-toggle" aria-label="Show password"><i data-lucide="eye"></i></button></div></label>
+          <div class="form-between"><label class="check-label"><input type="checkbox" id="rememberMe" checked> Remember me</label><a href="#" id="forgotLink">Forgot password?</a></div>
+          <button class="btn btn-primary full" type="submit">Sign in <i data-lucide="arrow-right"></i></button>
+          <div class="demo-note"><b>Demo access</b><span>User: user@fitconnect.demo / demo123</span><span>Trainer: trainer@fitconnect.demo / demo123</span><span>Admin: admin@fitconnect.demo / demo123</span></div>
+        </form>
+        <form id="registerForm" class="auth-form hidden">
+          <h2>Create your account</h2><p class="muted">Start with a few details. You can update these later.</p>
+          <div class="two-fields"><label>Full name<input id="regName" required placeholder="Your full name"></label><label>Age<input id="regAge" type="number" min="13" max="100" required placeholder="Age"></label></div>
+          <label>Email address<input id="regEmail" type="email" required placeholder="you@example.com"></label>
+          <div class="two-fields"><label>Password<input id="regPassword" type="password" minlength="6" required placeholder="At least 6 characters"></label><label>Confirm password<input id="regConfirm" type="password" required placeholder="Repeat password"></label></div>
+          <label>Fitness goal<select id="regGoal"><option>Keep Fit</option><option>Build Muscle</option><option>Burn Fat</option><option>Improve Endurance</option><option>Increase Strength</option></select></label>
+          <button class="btn btn-primary full" type="submit">Create account <i data-lucide="arrow-right"></i></button>
+        </form>
+        <div class="auth-footer">By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</div>
+      </div>
+    </div>
+  </section>
+
+  <div id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark"><i data-lucide="activity"></i></span><span>FIT<span>CONNECT</span></span></a>
+      <div class="side-label">MENU</div>
+      <nav id="sideNav" class="side-nav">
+        <button class="nav-link active" data-page="training"><i data-lucide="house"></i> Training</button>
+        <button class="nav-link" data-page="discover"><i data-lucide="compass"></i> Discover</button>
+        <button class="nav-link" data-page="trainers"><i data-lucide="users"></i> Trainers</button>
+        <button class="nav-link" data-page="report"><i data-lucide="chart-no-axes-combined"></i> Report</button>
+        <button class="nav-link" data-page="settings"><i data-lucide="settings"></i> Settings</button>
+      </nav>
+      <div class="sidebar-promo"><div class="promo-icon"><i data-lucide="crown"></i></div><b>Unlock your potential</b><p>Get personal coaching and guided plans.</p><button class="btn btn-light btn-small" data-page="subscription">Explore plans</button></div>
+      <button class="profile-mini" id="profileShortcut"><span class="avatar">RM</span><span><b id="sideUserName">Fitness Member</b><small id="sideUserRole">Fitness User</small></span><i data-lucide="chevron-down"></i></button>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark"><i data-lucide="activity"></i></span> FIT<span>CONNECT</span></div>
+        <div class="breadcrumb"><span id="pageEyebrow">YOUR FITNESS SPACE</span><h2 id="pageTitle">Training</h2></div>
+        <div class="top-actions">
+          <button class="icon-btn notification-btn" id="notificationBtn" aria-label="Notifications"><i data-lucide="bell"></i><span class="notification-dot"></span></button>
+          <button class="top-profile" id="topProfile"><span class="avatar" id="topAvatar">RM</span><span><b id="topUserName">Member</b><small id="topUserPlan">Basic plan</small></span><i data-lucide="chevron-down"></i></button>
+        </div>
+      </header>
+      <section id="pageContent" class="page-content"></section>
+      <nav class="bottom-nav">
+        <button class="bottom-link active" data-page="training"><i data-lucide="house"></i><span>Training</span></button>
+        <button class="bottom-link" data-page="discover"><i data-lucide="compass"></i><span>Discover</span></button>
+        <button class="bottom-link" data-page="report"><i data-lucide="chart-no-axes-combined"></i><span>Report</span></button>
+        <button class="bottom-link" data-page="settings"><i data-lucide="settings"></i><span>Settings</span></button>
+      </nav>
+    </main>
+  </div>
+  <div id="modalRoot"></div>
+  <script src="js/storage.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/trainer.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
